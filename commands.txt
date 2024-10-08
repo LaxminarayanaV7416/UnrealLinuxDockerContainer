@@ -1,0 +1,16 @@
+sudo docker run --rm --runtime=nvidia --gpus all -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix game
+
+sudo docker run --rm --runtime=nvidia --gpus all game
+
+sudo docker run --rm --runtime=nvidia --gpus all nvgame
+
+sudo docker run --rm --runtime=nvidia --gpus all -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix nvgame
+
+sudo docker run --rm --runtime=nvidia --gpus all -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix nvgame1
+
+sudo docker run --rm --runtime=nvidia --gpus all -e DISPLAY=$DISPLAY game
+
+sudo docker build -t game .
+sudo docker run --rm --runtime=nvidia --gpus all --network host game
+sudo docker ps -aq | xargs sudo docker stop
+
